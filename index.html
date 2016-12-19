@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.6/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-br-filters/0.7.0/angular-br-filters.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="controllerJs.js"></script>
+</head>
+<body ng-controller="controllerPersona">
+<div class="jumbotron text-center">
+    <hi>Lista Propietarios</hi>
+    <br>
+    <select ng-model="nombrePro" ng-click="getImagen(nombrePro)">
+        <option value="" selected="selected">Seleccione</option>
+        <option ng-repeat="x in perso" value="{{x.Id_propietario}}">{{x.nombre}}</option>
+    </select>
+    <br>
+    <div ng-repeat="ima1 in ima">
+        <img src="imagenes/{{ima1.direccion}}">
+    </div>
+</div>
+<br>
+
+<div class="container">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Editar</button>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Editar</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Seleccione la imagen atg editar.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
