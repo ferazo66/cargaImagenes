@@ -39,10 +39,15 @@
                     <h4 class="modal-title">Editar</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Seleccione la imagen atg editar.</p>
+                    <p>Seleccione las imagenes.</p>
+                    <form name="upload" ng-submit="uploadFile()">
+                        <input type="text" ng-model="name" /><br>
+                        <input type="file" name="file" uploader-model="file" /> <br>
+                        <input type="submit" value="Enviar">
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
 
@@ -50,7 +55,6 @@
     </div>
 
 </div>
-
 
 </body>
 </html>
