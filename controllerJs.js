@@ -2,7 +2,7 @@
  * Created by ferazo on 14/12/2016.
  */
 angular.module('app',[])
-    .controller("controllerPersona",function($scope, $http,$upload,$delete) {
+    .controller("controllerPersona",function($scope, $http,upload) {
         $http.get("http://localhost/pruebacodigofacilito/conex/ws/consultaPro.php")
             .success(function (data) {
                 $scope.perso = data.PERSONAS;
@@ -26,17 +26,10 @@ angular.module('app',[])
         $scope.uploadFile = function(){
             var name = $scope.name;
             var file = $scope.file;
-            $upload.uploadFile(file, name).then(function(res){
+            upload.uploadFile(file, name).then(function(res){
                 console.log(res);
             });
-        };  $scope.deleteFile = function(){
-            var name = $scope.name;
-            var file = $scope.file;
-            $delete.deleteFile(file, name).then(function(res){
-                console.log(res);
-            });
-        }
-
+        };
     }
 )
 .directive('uploaderModel', ["$parse", function ($parse) {
@@ -57,7 +50,7 @@ angular.module('app',[])
             var formData = new FormData();
             formData.append("name", name);
             formData.append("file", file);
-            return $http.post("ws/subirarchivos.php", formData, {
+            return $http.post("ws/subirArchivos.php", formData, {
                 headers: {
                     "Content-type": undefined
                 },
@@ -71,6 +64,6 @@ angular.module('app',[])
                 })
             return deferred.promise;
         }
-    }]
-);
+    }])
+
 
