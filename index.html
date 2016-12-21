@@ -25,10 +25,9 @@
     </div>
 </div>
 <br>
-
 <div class="container">
     <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Editar</button>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Agregar Imagen</button>
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
@@ -36,7 +35,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Editar</h4>
+                    <h4 class="modal-title">agregar</h4>
                 </div>
                 <div class="modal-body">
                     <p>Seleccione las imagenes.</p>
@@ -50,11 +49,34 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
-
         </div>
     </div>
-
 </div>
-
+<div class="container">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalEliminar">Eliminar Imagen</button>
+    <!-- Modal -->
+    <div class="modal fade" id="modalEliminar" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Eliminar</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Seleccione las imagenes.</p>
+                    <form name="upload" ng-submit="deleteFile()">
+                        <input type="file" name="file" uploader-model="file" /> <br>
+                        <input type="submit" value="Eliminar">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

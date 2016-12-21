@@ -2,7 +2,7 @@
  * Created by ferazo on 14/12/2016.
  */
 angular.module('app',[])
-    .controller("controllerPersona",function($scope, $http,upload) {
+    .controller("controllerPersona",function($scope, $http,$upload,$delete) {
         $http.get("http://localhost/pruebacodigofacilito/conex/ws/consultaPro.php")
             .success(function (data) {
                 $scope.perso = data.PERSONAS;
@@ -26,10 +26,17 @@ angular.module('app',[])
         $scope.uploadFile = function(){
             var name = $scope.name;
             var file = $scope.file;
-            upload.uploadFile(file, name).then(function(res){
+            $upload.uploadFile(file, name).then(function(res){
+                console.log(res);
+            });
+        };  $scope.deleteFile = function(){
+            var name = $scope.name;
+            var file = $scope.file;
+            $delete.deleteFile(file, name).then(function(res){
                 console.log(res);
             });
         }
+
     }
 )
 .directive('uploaderModel', ["$parse", function ($parse) {
@@ -44,7 +51,6 @@ angular.module('app',[])
         }
     };
 }])
-
     .service('upload', ["$http", "$q", function ($http, $q){
         this.uploadFile = function(file, name){
             var deferred = $q.defer();
@@ -67,15 +73,4 @@ angular.module('app',[])
         }
     }]
 );
-//var request= $http({method:"ima",
-//    url:"http://localhost/pruebacodigofacilito/conex/ws/consultaIma.php",
-//    data:{})}
-//
-//    .then(function (response) {
-//        $scope.ima = response.data.IMAGENES;
-//        console.log('ima' + $scope.ima);
-//    }, function (error) {
-//        console.log('Error imagenes')
-//    }
-//);
 
