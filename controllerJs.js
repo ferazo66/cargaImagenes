@@ -3,7 +3,7 @@
  */
 angular.module('app',[])
     .controller("controllerPersona",function($scope, $http,upload) {
-        $http.get("http://localhost/pruebacodigofacilito/conex/ws/consultaPro.php")
+        $http.get("http://localhost/imagenes/cargaImagenes/ws/consultaPro.php")
             .success(function (data) {
                 $scope.perso = data.PERSONAS;
                 console.log('nom: ' + data.perso);
@@ -14,7 +14,7 @@ angular.module('app',[])
             console.log("prueba" + Id_propietario);
             var request=$http({
                 method: "POST",
-                url: "http://localhost/pruebacodigofacilito/conex/ws/consultaIma.php",
+                url: "http://localhost/imagenes/cargaImagenes/ws/consultaIma.php",
                 data: {Id_propietario: Id_propietario},
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             });
@@ -29,7 +29,7 @@ angular.module('app',[])
             upload.uploadFile(file, name).then(function(res){
                 console.log(res);
             });
-        };
+        }
     }
 )
 .directive('uploaderModel', ["$parse", function ($parse) {
@@ -50,7 +50,7 @@ angular.module('app',[])
             var formData = new FormData();
             formData.append("name", name);
             formData.append("file", file);
-            return $http.post("ws/subirArchivos.php", formData, {
+            return $http.post("ws/moverArchivos.php", formData, {
                 headers: {
                     "Content-type": undefined
                 },

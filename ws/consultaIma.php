@@ -11,7 +11,8 @@ $request = json_decode($postdata);
 $pagina="errorLogin.php";
 
  $sql = "
-SELECT imagenes.Id_imagenes, imagenes.direccion,imagenes.estado, imagenes.Id_propietario FROM imagenes as imagenes WHERE Id_propietario='$Id_propietario' AND  estado='1'    ";
+SELECT imagenes.Id_imagenes, imagenes.direccion,imagenes.estado, imagenes.Id_propietario FROM imagenes as imagenes WHERE Id_propietario='$Id_propietario' AND  estado='1'
+";
             if (mysqli_connect_errno()) {
                  header('Content-type: application/json; charset=utf-8');
                 echo json_encode(array(
