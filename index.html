@@ -11,12 +11,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="controllerJs.js"></script>
 </head>
-
 <body ng-controller="controllerPersona">
 <div class="jumbotron text-center">
     <hi>Lista Propietarios</hi>
     <br>
-    <select ng-model="nombrePro" ng-click="getImagen(nombrePro)">
+    <select ng-model="nombrePro" ng-click="getImagen(nombrePro)" >
         <option value="" selected="selected">Seleccione</option>
         <option ng-repeat="x in perso" value="{{x.Id_propietario}}">{{x.nombre}}</option>
     </select>
@@ -28,9 +27,9 @@
 <br>
 <div class="container">
     <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Agregar Imagen</button>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" ng-hide="nombrePro==undefined  || nombrePro==0" >Agregar Imagen</button>
     <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="myModal" role="dialog"> nombrePro==0
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -54,7 +53,7 @@
 </div>
 <div class="container">
     <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalEliminar">Eliminar Imagen</button>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalEliminar"ng-hide="nombrePro==undefined  || nombrePro==0">Eliminar Imagen</button>
     <!-- Modal -->
     <div class="modal fade" id="modalEliminar" role="dialog">
         <div class="modal-dialog">
