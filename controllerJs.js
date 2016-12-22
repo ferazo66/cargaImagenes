@@ -41,6 +41,20 @@ angular.module('app',[])
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 })
             }
+        $scope.deletFile=function(Id_imagenes,direccion,estado,Id_propietario){
+            console.log("prueba" + direccion + estado + Id_propietario);
+            var request=$http({
+                method: "POST",
+                url: "http://localhost/imagenes/cargaImagenes/ws/eliminarArchivos.php",
+                data: {
+                    Id_imagenes:Id_imagenes,
+                    direccion: direccion,
+                    estado: estado,
+                    Id_propietario: Id_propietario
+                },
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            })
+        }
 
     }
 )

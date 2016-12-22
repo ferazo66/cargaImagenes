@@ -40,7 +40,7 @@
                 <div class="modal-body">
                     <p>Seleccione las imagenes.</p>
                     <form name="upload">
-                        <input type="file" name="file" uploader-model="file" /> <br>
+                        <input type="file" name="file" uploader-model="file"  /> <br>
                         <input type="submit" value="Enviar" ng-click="uploadFile(file.name,true,nombrePro)">
                     </form>
                 </div>
@@ -66,8 +66,10 @@
                 <div class="modal-body">
                     <p>Seleccione las imagenes.</p>
                     <form name="upload" ng-submit="deleteFile()">
-                        <input type="file" name="file" uploader-model="file" /> <br>
-                        <input type="submit" value="Eliminar">
+                        <div ng-repeat="ima1 in ima">
+                            <img src="\imagenes\cargaImagenes\ws\assets\{{ima1.direccion}}">
+                            <button type="button" class="btn btn-default"ng-click="deletFile(ima1.Id_imagenes,ima1.direccion,'0',ima1.Id_propietario)">Eliminar</button>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
