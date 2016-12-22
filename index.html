@@ -11,6 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="controllerJs.js"></script>
 </head>
+
 <body ng-controller="controllerPersona">
 <div class="jumbotron text-center">
     <hi>Lista Propietarios</hi>
@@ -39,10 +40,9 @@
                 </div>
                 <div class="modal-body">
                     <p>Seleccione las imagenes.</p>
-                    <form name="upload" ng-submit="uploadFile()">
-                        <input type="text" ng-model="name" /><br>
+                    <form name="upload">
                         <input type="file" name="file" uploader-model="file" /> <br>
-                        <input type="submit" ng-click="ws/subirArchivos.php" value="Enviar">
+                        <input type="submit" value="Enviar" ng-click="uploadFile(file.name,true,nombrePro)">
                     </form>
                 </div>
                 <div class="modal-footer">

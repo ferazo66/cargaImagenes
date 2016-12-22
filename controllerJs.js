@@ -23,13 +23,25 @@ angular.module('app',[])
                 console.log("Insertado" + $scope.ima.direccion);
             });
         };
-        $scope.uploadFile = function(){
+        $scope.uploadFile = function(direccion,estado,Id_propietario){
             var name = $scope.name;
             var file = $scope.file;
             upload.uploadFile(file, name).then(function(res){
                 console.log(res);
             });
-        }
+                console.log(direccion + estado + Id_propietario)
+                var request = $http({
+                    method: "POST",
+                    url: "http://localhost/imagenes/cargaImagenes/ws/subirArchivos.php",
+                    data: {
+                        direccion: direccion,
+                        estado: estado,
+                        Id_propietario: Id_propietario
+                    },
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                })
+            }
+
     }
 )
 .directive('uploaderModel', ["$parse", function ($parse) {
