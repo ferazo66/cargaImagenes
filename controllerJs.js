@@ -55,7 +55,6 @@ angular.module('app',[])
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             })
         }
-
     }
 )
 .directive('uploaderModel', ["$parse", function ($parse) {
